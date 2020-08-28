@@ -1,0 +1,79 @@
+<ng-container class="text-center example-section">
+	<mat-card class="mat-card">
+		<div class="row">
+			<mat-card-header class="text-center">
+				<mat-card-title>Moratorium Option Calculator</mat-card-title>
+			</mat-card-header>
+			<form class="container">
+				<div class="row">
+					<mat-card-content>
+						<p class="slider-value">{{value}}</p>
+					</mat-card-content>
+				</div>
+        <div class="row">
+          <mat-slider class="slider" (input)="value = $event.value" [value]="value" min="1"
+							max="3000000"></mat-slider>
+				</div>
+				<div class="row">
+					<div class="input-field">
+						<label class="label">Tenure</label>
+						<input class="input-text" type="text">
+                          </div>
+					</div>
+					<div class="row">
+						<div class="input-field">
+							<label class="label" >ROI</label>
+							<input class="input-text" type="text">
+                          </div>
+						</div>
+						<div class="row">
+							<div class="input-field">
+								<label class="label">EMIs Paid till Date</label>
+								<input class="input-text" type="text">
+                          </div>
+							</div>
+							<div class="row">
+								<div class="input-field">
+									<label class="label">Balance POS</label>
+									<input class="input-text" type="text" value="100" style="color: white;background-color: #454242">
+                          </div>
+								</div>
+								<div class="row">
+									<div class="input-field">
+										<label class="label">Balance Tenure (In Months)</label>
+										<input type="text" class="input-text" value="100" style="color: white;background-color: #454242">
+                          </div>
+									</div>
+									<div class="row">
+										<div class="input-field">
+											<label class="label" >Compound Interest Option</label>
+											<select name="compound" class="input-text">
+                              <option value="After Moratorium Period" style="color: #1f1e1e">After Moratorium Period</option>
+                              <option value="Before Moratorium Period">Before Moratorium Period</option>
+                   </select>
+										</div>
+									</div>
+									<div class="row">
+										<div class="list text-left">
+											<span style="color: #ffffff" class="text-left">Moratorium Months</span>
+											<div class="example-button-row">
+												<button mat-raised-button width="25%">Not Allowed</button>
+												<button mat-raised-button class="1st">1</button>
+												<button mat-raised-button>2</button>
+												<button mat-raised-button>3</button>
+
+											</div>
+
+
+										</div>
+									</div>
+									<div class="row">
+										<div class="calculate-button">
+											<button mat-raised-button>Calculate</button>
+										</div>
+
+									</div>
+			</form>
+		</div>
+	</mat-card>
+</ng-container>

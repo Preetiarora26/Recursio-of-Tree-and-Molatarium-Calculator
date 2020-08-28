@@ -1,0 +1,31 @@
+
+<mat-checkbox [(ngModel)]="recursive">Expand Recursively</mat-checkbox>
+<mat-card >
+  <mat-tree class="mt-2" [dataSource]="nestedDataSource" [treeControl]="nestedTreeControl">
+    <mat-nested-tree-node *matTreeNodeDef="let node">
+      <li>
+        <div class="mat-tree-node">   {{node.name}} | {{node.chainJob}}</div>
+      </li>
+    </mat-nested-tree-node>
+    <mat-nested-tree-node *matTreeNodeDef="let node; when: hasNestedChild">
+        <li class="example-tree-container">
+          <div class="mat-tree-node">
+            <button mat-icon-button matTreeNodeToggle
+                    [matTreeNodeToggleRecursive]="recursive"
+                  [attr.aria-label]="'toggle ' + node.filename">
+              <mat-icon>
+                {{nestedTreeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+              </mat-icon>
+            </button>
+            {{node.name}} | {{node.chainJob}}
+        </div>
+        <ul class="example-tree-nested-node">
+          <div  *ngIf="nestedTreeControl.isExpanded(node)">
+          <ng-container matTreeNodeOutlet></ng-container>
+          </div>
+        </ul>
+      </li>
+      
+    </mat-nested-tree-node>
+  </mat-tree>
+</mat-card>
